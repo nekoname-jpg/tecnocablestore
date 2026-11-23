@@ -942,7 +942,7 @@ const productos = [
         descripcion: "Equipo listo para jugar y trabajar con flujo de aire optimizado y gestión profesional de cables.",
         specs: ["16GB RAM DDR5 5600MHz", "SSD 512GB SATA", "Case Gaming RGB", "Graficos integrados Radeon 760M", "Procesador AMD Ryzen 5 8600G"],
         imagenes: [
-            "imagenesTecnocable/Combo aura.jpeg",
+            "imagenesTecnocable/Combo Aura.jpeg",
             "imagenesTecnocable/oficina.jpg"
         ]
     },
