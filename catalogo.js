@@ -205,7 +205,7 @@ const productos = [
         descripcion: "Audifonos ONIKUMA K8 ajustables con sonido envolvente y microfono con cancelación de ruido, RGB con 6 luces, 3.5mm jack y USB, blancos",
         specs: ["Sonido Envolvente", "RGB", "Microfono con Cancelación de ruido", "Cableado"],
         imagenes: [
-            "imagenesTecnocable/Onikuma k8 blancos.jpeg",
+            "imagenesTecnocable/Onikuma K8 blancos.jpeg",
             "imagenesTecnocable/ventaperifericosimgsimple.jpg"
         ]
     },
