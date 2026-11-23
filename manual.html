@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Configuración básica y metadatos SEO -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manual de Usuario - TECNOCABLE</title>
+    <meta name="description" content="Manual de usuario de TECNOCABLE: cómo navegar, buscar y filtrar productos, usar el carrito por WhatsApp, solicitar servicios y ubicar las sedes en Barquisimeto.">
+
+    <!-- Iconos de Bootstrap y favicon de TECNOCABLE -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="icon" type="image/svg+xml" href="imagenesTecnocable/ICON2 (1).svg">
+
+    <style>
+        /* =========================================================
+           1. VARIABLES DE COLOR Y TIPOGRAFÍA (PALETA TECNOCABLE)
+           ========================================================= */
+        :root {
+            --color1--: #1a6cd8;   /* Azul principal */
+            --color10--: #4187E5;  /* Azul claro secundario */
+            --color3--: #ffffff;   /* Blanco puro */
+            --color11-: #c2dcff;   /* Azul muy claro para subtítulos */
+            --color12--: #ffffff;
+            --color13--: #4f9afc;
+            --color7--: #ffffff;   /* Fondo de tarjetas */
+            --color8--: #f2f7ff;   /* Fondo azul tenue */
+            --color6--: #000000;   /* Negro base */
+            --color2--: #2011aa;   /* Azul profundo para títulos */
+            --color4--: #26538d;   /* Azul grisáceo para textos */
+            --color15--: #ffc108;  /* Amarillo/Dorado de acento */
+            --color17--: #6b0daa;
+            --color18--: #ae16eb;
+            --color20--: #041020;  /* Azul marino oscuro (Footer) */
+            --fonts--: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            --transition: all 0.3s ease;
+        }
+
+        /* =========================================================
+           2. RESETEO Y ESTILOS GENERALES
+           ========================================================= */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scrollbar-color: var(--color1--) var(--color10--);
+        }
+
+        /* Estructura Flex en columna para fijar el footer al final */
+        body {
+            font-family: var(--fonts--);
+            line-height: 1.65;
+            color: var(--color6--);
+            background: radial-gradient(circle at top left, var(--color7--) 55%, var(--color8--) 100%);
+            min-height: 100dvh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* =========================================================
+           3. ENCABEZADO (HERO)
+           ========================================================= */
+        .m-hero {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--color2--) 0%, var(--color1--) 52%, var(--color10--) 100%);
+            color: var(--color3--);
+            padding: 2.75rem 1.5rem 2.6rem;
+            box-shadow: 0 10px 28px rgba(4, 16, 32, 0.25);
+            border-bottom: 4px solid var(--color15--);
+        }
+
+        /* Destello decorativo sutil en la esquina superior derecha */
+        .m-hero::before {
+            content: "";
+            position: absolute;
+            top: -55%;
+            right: -12%;
+            width: 420px;
+            height: 420px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.14) 0%, rgba(255, 255, 255, 0) 70%);
+            pointer-events: none;
+        }
+
+        .m-hero-inner {
+            position: relative;
+            z-index: 1;
+            max-width: 820px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 0.75rem;
+        }
+
+        /* Contenedor del logotipo */
+        .m-logo-wrap {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            margin-bottom: 0.25rem;
+        }
+
+        .m-logo-wrap:hover {
+            transform: translateY(-3px) scale(1.02);
+        }
+
+        /* Intento de disimular el fondo oscuro del PNG con mezcla de luz */
+        .m-logo {
+            width: 170px;
+            max-width: 100%;
+            height: auto;
+            display: block;
+            object-fit: contain;
+            mix-blend-mode: lighten;
+            filter: drop-shadow(0 6px 14px rgba(4, 16, 32, 0.35));
+        }
+
+        .m-hero h1 {
+            color: var(--color3--);
+            font-size: clamp(1.9rem, 4vw, 2.55rem);
+            font-weight: 800;
+            letter-spacing: 0.4px;
+            text-shadow: 0 2px 10px rgba(4, 16, 32, 0.25);
+        }
+
+        .m-sub {
+            color: var(--color11-);
+            font-size: 1.05rem;
+            max-width: 640px;
+        }
+
+        /* =========================================================
+           4. BARRA DE NAVEGACIÓN RÁPIDA (ANCLAS)
+           ========================================================= */
+        .m-quick-nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.55rem;
+            margin-top: 0.85rem;
+        }
+
+        .m-quick-nav a {
+            padding: 0.45rem 1rem;
+            border-radius: 999px;
+            text-decoration: none;
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: var(--color3--);
+            background: rgba(255, 255, 255, 0.14);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 255, 255, 0.28);
+            transition: var(--transition);
+        }
+
+        .m-quick-nav a:hover {
+            background: var(--color15--);
+            color: var(--color20--);
+            border-color: var(--color15--);
+            transform: translateY(-2px);
+        }
+
+        /* =========================================================
+           5. CONTENEDOR PRINCIPAL Y TARJETAS DEL MANUAL
+           ========================================================= */
+        .m-container {
+            width: 100%;
+            max-width: 960px;
+            margin: 2.35rem auto;
+            padding: 0 1.25rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            flex: 1;
+        }
+
+        .m-card {
+            scroll-margin-top: 24px;
+            background-color: var(--color7--);
+            border: 1px solid rgba(26, 108, 216, 0.2);
+            border-left: 5px solid var(--color1--);
+            border-radius: 16px;
+            padding: 1.65rem 1.85rem;
+            box-shadow: 0 8px 22px rgba(4, 16, 32, 0.07);
+            transition: var(--transition);
+        }
+
+        .m-card:hover {
+            transform: translateY(-3px);
+            border-left-color: var(--color15--);
+            box-shadow: 0 12px 28px rgba(26, 108, 216, 0.15);
+        }
+
+        /* Títulos de cada sección con insignia de icono */
+        .m-card h2 {
+            color: var(--color2--);
+            font-size: 1.3rem;
+            margin-bottom: 0.85rem;
+            padding-bottom: 0.55rem;
+            border-bottom: 1px solid rgba(65, 135, 229, 0.22);
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .m-card h2 i {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 34px;
+            height: 34px;
+            border-radius: 10px;
+            background: rgba(26, 108, 216, 0.12);
+            color: var(--color1--);
+            font-size: 1.05rem;
+            flex-shrink: 0;
+        }
+
+        .m-card p {
+            color: var(--color4--);
+            font-size: 0.98rem;
+            margin-bottom: 0.85rem;
+        }
+
+        .m-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .m-card code {
+            padding: 0.15rem 0.45rem;
+            border-radius: 6px;
+            background: rgba(26, 108, 216, 0.12);
+            color: var(--color2--);
+            font-size: 0.9em;
+        }
+
+        /* Listas ordenadas y desordenadas */
+        .m-list,
+        .m-steps {
+            padding-left: 1.35rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.65rem;
+            color: var(--color4--);
+            margin-bottom: 0.85rem;
+        }
+
+        .m-list:last-child,
+        .m-steps:last-child {
+            margin-bottom: 0;
+        }
+
+        .m-list li strong,
+        .m-steps li strong {
+            color: var(--color2--);
+        }
+
+        /* =========================================================
+           6. CUADRÍCULA DE SEDES FÍSICAS
+           ========================================================= */
+        .m-meta-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .info-box {
+            background-color: var(--color8--);
+            border: 1px solid rgba(26, 108, 216, 0.26);
+            border-radius: 12px;
+            padding: 1.05rem 1.25rem;
+        }
+
+        .info-box h3 {
+            color: var(--color1--);
+            font-size: 1.05rem;
+            margin-bottom: 0.35rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .info-box p {
+            font-size: 0.92rem;
+            margin-bottom: 0;
+        }
+
+        /* =========================================================
+           7. PIE DE PÁGINA (FOOTER)
+           ========================================================= */
+        .m-footer {
+            background-color: var(--color20--);
+            color: var(--color11-);
+            text-align: center;
+            padding: 1.45rem 1rem;
+            font-size: 0.9rem;
+            border-top: 3px solid var(--color1--);
+        }
+
+        /* =========================================================
+           8. ADAPTACIÓN RESPONSIVE (MÓVILES)
+           ========================================================= */
+        @media (max-width: 600px) {
+            .m-hero {
+                padding: 2.1rem 1rem 2rem;
+            }
+
+            .m-logo {
+                width: 145px;
+            }
+
+            .m-card {
+                padding: 1.25rem 1.15rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ================= ENCABEZADO PRINCIPAL ================= -->
+    <header class="m-hero">
+        <div class="m-hero-inner">
+            <!-- Logotipo con mezcla para atenuar el fondo oscuro de la imagen -->
+            <div class="m-logo-wrap">
+                <img src="imagenesTecnocable/Logo 1.png" alt="Logo de TECNOCABLE" class="m-logo">
+            </div>
+
+            <!-- Título y eslogan -->
+            <h1>Manual de Usuario</h1>
+            <p class="m-sub">¡Conectamos tu día a día! — Guía rápida para navegar y cotizar en la web de TECNOCABLE</p>
+
+            <!-- Menú de acceso rápido a cada sección -->
+            <nav class="m-quick-nav" aria-label="Secciones del manual">
+                <a href="#introduccion">Introducción</a>
+                <a href="#navegacion">Navegación</a>
+                <a href="#catalogo-carrito">Catálogo y carrito</a>
+                <a href="#servicios">Servicios</a>
+                <a href="#nosotros-sedes">Nosotros y sedes</a>
+                <a href="#contacto">Contacto</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ================= CONTENIDO DEL MANUAL ================= -->
+    <main class="m-container">
+        <!-- Sección 1: Introducción -->
+        <section id="introduccion" class="m-card">
+            <h2><i class="bi bi-info-circle"></i> 1. Introducción</h2>
+            <p>Este manual explica de forma sencilla cómo utilizar el sitio web de <strong>TECNOCABLE</strong> para explorar el catálogo tecnológico, revisar los servicios disponibles, conocer al equipo, ubicar las tiendas físicas en Barquisimeto y enviar consultas o pedidos por WhatsApp o correo electrónico.</p>
+        </section>
+
+        <!-- Sección 2: Navegación general -->
+        <section id="navegacion" class="m-card">
+            <h2><i class="bi bi-compass"></i> 2. Barra superior, carrusel e Inicio</h2>
+            <p>Desde la cabecera fija puedes desplazarte rápidamente a cualquier sección del sitio o acceder a herramientas clave:</p>
+            <ul class="m-list">
+                <li><strong>Enlaces de sección:</strong> llevan directo a <em>Inicio</em>, <em>Catálogo</em>, <em>Servicios</em>, <em>Sobre nosotros</em>, <em>Ubicación</em> y <em>Contáctanos</em>. En pantallas pequeñas, pulsa el botón de menú (<i class="bi bi-list"></i>) para abrir la navegación y (<i class="bi bi-x"></i>) para cerrarla.</li>
+                <li><strong>Botón del carrito (<i class="bi bi-cart3"></i>):</strong> muestra la cantidad de artículos agregados y abre el panel lateral del carrito.</li>
+                <li><strong>Ayuda (<i class="bi bi-question-circle"></i>):</strong> abre este manual de usuario en una pestaña nueva.</li>
+                <li><strong>Modo claro / oscuro:</strong> cambia la paleta visual del sitio según tu preferencia.</li>
+                <li><strong>Carrusel principal e Inicio:</strong> al entrar verás el carrusel de videos e imágenes de la tienda, seguido de la portada de <em>Inicio</em> con la presentación de los servicios de redes, internet y televisión por cable.</li>
+            </ul>
+        </section>
+
+        <!-- Sección 3: Catálogo y proceso de compra -->
+        <section id="catalogo-carrito" class="m-card">
+            <h2><i class="bi bi-bag-check"></i> 3. Catálogo, vista ampliada y carrito</h2>
+            <p>En la sección <strong>Catálogo de Productos</strong> puedes localizar equipos y componentes y preparar tu cotización:</p>
+            <ol class="m-steps">
+                <li><strong>Buscar y filtrar:</strong> escribe en la barra de búsqueda (por ejemplo, <em>RTX</em>, <em>Teclado</em> o <em>Router</em>) o haz clic en las categorías: <em>Todos</em>, <em>Periféricos</em>, <em>Componentes</em>, <em>PC Ensambladas</em> o <em>Redes y Cables</em>.</li>
+                <li><strong>Ver detalles y zoom:</strong> haz clic en la imagen de un producto para abrir su ventana modal con descripción, especificaciones, miniaturas y efecto de <strong>zoom</strong> al pasar el cursor sobre la imagen principal.</li>
+                <li><strong>Agregar al carrito:</strong> pulsa <em>Agregar al carrito</em> desde la tarjeta o desde la ventana de detalles. El contador superior se actualizará al instante.</li>
+                <li><strong>Gestionar y comprar por WhatsApp:</strong> abre el carrito lateral, ajusta cantidades, elimina artículos o vacíalo si lo deseas. Puedes escribir tu nombre (opcional), revisar el total estimado y pulsar <strong>Comprar con un Asesor</strong> para continuar por WhatsApp.</li>
+            </ol>
+        </section>
+
+        <!-- Sección 4: Servicios disponibles -->
+        <section id="servicios" class="m-card">
+            <h2><i class="bi bi-tools"></i> 4. Sección de Servicios</h2>
+            <p>En <strong>Nuestros Servicios</strong> encontrarás tarjetas interactivas (con efecto al pasar el cursor) para las cuatro áreas principales:</p>
+            <ul class="m-list">
+                <li><strong>Servicio técnico especializado:</strong> mantenimiento, reparación y actualización de equipos lentos, que se apagan o no encienden.</li>
+                <li><strong>Venta de periféricos:</strong> teclados mecánicos, mouses, controles, audífonos y accesorios para oficina y <em>gaming</em>.</li>
+                <li><strong>Componentes internos:</strong> opciones para plataformas Ryzen, Intel, Nvidia y AMD.</li>
+                <li><strong>Ensamblaje de computadores:</strong> armado de PCs a medida o equipos ya ensamblados según tu uso.</li>
+            </ul>
+            <p>Cada tarjeta incluye el botón <strong>Solicitar servicio</strong>, que te dirige al WhatsApp de TECNOCABLE para coordinar la atención.</p>
+        </section>
+
+        <!-- Sección 5: Historia y ubicación de tiendas -->
+        <section id="nosotros-sedes" class="m-card">
+            <h2><i class="bi bi-shop"></i> 5. Sobre nosotros y sedes físicas</h2>
+            <p>En <strong>¿Quiénes Somos?</strong> se resume la trayectoria de TECNOCABLE desde mediados de 2022 (enfocada en cables UTP, redes de fibra óptica y cámaras de seguridad) hasta su expansión hacia el mundo <em>gaming</em> y el ensamblaje de PCs a inicios de 2023, junto con el carrusel del equipo.</p>
+            <p>En <strong>Ubicación</strong>, pasa el cursor o toca las tarjetas de cada sede para girarlas y ver la dirección exacta y el mapa interactivo de Google Maps:</p>
+
+            <!-- Tarjetas con direcciones de las dos sucursales -->
+            <div class="m-meta-grid">
+                <article class="info-box">
+                    <h3><i class="bi bi-geo-alt-fill"></i> C.C. Merpolara</h3>
+                    <p>Av. Vargas con Carrera 18, Piso 1, Local P1-057, Barquisimeto, Edo. Lara.</p>
+                </article>
+                <article class="info-box">
+                    <h3><i class="bi bi-geo-alt-fill"></i> C.C. Cosmos</h3>
+                    <p>Carrera 22 con Calle 26, Piso 1, Local 2B-3, Barquisimeto, Edo. Lara.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- Sección 6: Contacto y enlaces rápidos -->
+        <section id="contacto" class="m-card">
+            <h2><i class="bi bi-envelope-paper"></i> 6. Formulario de contacto y pie de página</h2>
+            <p>En <strong>Contáctanos</strong> puedes enviar un mensaje directo completando tu <em>Nombre</em>, <em>Correo electrónico</em>, <em>Asunto</em> y <em>Mensaje</em>, y pulsando <strong>Enviar correo</strong> (el formulario se envía a través de FormSubmit a <code>tecnocable.store@gmail.com</code>).</p>
+            <p>También puedes usar los enlaces directos a <strong>Instagram</strong>, <strong>Facebook</strong> y <strong>WhatsApp</strong>, o revisar en el pie de página los accesos rápidos diferenciados para <strong>Clientes</strong> (soporte, presupuestos, mantenimiento, periféricos/componentes y sedes) y <strong>Empresas</strong> (proveedores, cotizaciones y soporte empresarial).</p>
+        </section>
+    </main>
+
+    <!-- ================= PIE DE PÁGINA ================= -->
+    <footer class="m-footer">
+        <p>&copy; 2026 TECNOCABLE - Todos los derechos reservados ·</p>
+    </footer>
+</body>
+</html>
