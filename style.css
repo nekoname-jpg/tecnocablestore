@@ -325,14 +325,14 @@ main {
 	box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45);
 	backdrop-filter: blur(12px);
 }
-.slider-wrapper .swiper .swiper-pagination-bullet{
+.swiper-pagination-bullet{
 	width: 8.5px;
 	height: 8.5px;
 	opacity: 0.5;
 	background: var(--color7--);
 	transition: 0.6s ease;
 }
-.slider-wrapper .swiper .swiper-pagination-bullet-active{
+.swiper-pagination-bullet-active{
 	width: 30px;
 	border-radius: 5px;
 	opacity: 1;
