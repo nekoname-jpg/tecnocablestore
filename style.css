@@ -352,7 +352,7 @@ main {
 
 /*************** INICIO  (PRIMERA SECCION) ********************/
 .inicio{
-    scroll-margin-top: 430px;
+    scroll-margin-top: 20dvh;
     padding-top: 5%;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
