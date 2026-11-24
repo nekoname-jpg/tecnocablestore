@@ -309,7 +309,7 @@ main {
 }
 .swiper{
 	object-fit: cover;
-	height: 85dvh;
+	height: 75dvh;
 	width: 100%;
 	max-width: 100%;
 }
