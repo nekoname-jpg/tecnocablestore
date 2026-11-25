@@ -1648,12 +1648,10 @@ p {
         order: 1;
     }
     .cards .card1{
-        display: flex;
         position: relative;
         width: 320px; 
     }
     .cards .card2{
-        display: flex;
         position: relative;
         width: 320px; 
 
@@ -1671,12 +1669,12 @@ p {
     }
     .card1 .card-img1{
        
-        height: 410px;
+        height: 510px;
       
     }
     .card2 .card-img2{
       
-        height: 410px;
+        height: 510px;
         
     }
     .card3 .card-img3{
