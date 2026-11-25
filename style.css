@@ -1620,6 +1620,7 @@ p {
         justify-content: space-evenly;
         place-items: center;
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+		align-items: stretch;
     }
     .card1:hover .card-img1{
         transition: all 0.8s ease;
